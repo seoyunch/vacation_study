@@ -22,4 +22,14 @@ app.get('/pet', function(요청, 응답){
 //안내문을 띄워주자 "뷰티용품 쇼핑 페이지임"
 app.get('/beauty', function(req, res){
     res.send('뷰티용품 쇼핑 페이지임!')
-})
+});
+// -> 수정한 코드를 반영하려면 서ㅂ러를 재실행 시켜야하는 불편함
+// -> 자동화시키면 됨! (nodemon으로 해결) 
+
+// html 파일을 보낼수 있음
+app.get('/',function(req, res){
+    res.sendFile(__dirname + '/index.html'
+    )
+});
+
+// bootstrap : 디자일 잘 하게 도와주는거..?
