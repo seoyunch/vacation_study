@@ -1,0 +1,44 @@
+Docker : application을 packing할수있는 tool
+    container(하나의 작은 SW 유닛)안에 
+    application과 시스템 툴(환경설정), dependencies들을 하나로 묶어서
+    다른 서버, 다른 pc 등 어떤 곳에도 쉽게 배포하고 안전적으로 구동할수 있게 도와줌
+    서버와 피씨마다 위에것들을 하나하나 설치하기엔 한계가 있음(버전 불일치 등)
+
+    컨테이너 안에는 어플리케이션을 구동하기위한 모든것들이 들어있음
+    -> 어플리케이션을 구동하기 위한 런타임 환경에 필요한 모든것들이 있어 어디서든 구동 가능
+    짱 유용함!
+
+    VM과 다른점??
+    -> VM은 운영체제를 포함하고있어서 무거움.
+    VM에서 좀더 경량화된게 container라고 생각하면됨
+    -> container는 host OS에서 container Engine SW만 설치하면 됨
+    이런 container Engine중에 가장 많이 사용되는것이 Docker Engine
+
+Docker의 큰 그림
+: container를 1.만들고 2.배포하고 3.구동한다!
+
+1. Buliding containers
+- Dockerfile : container를 어떻게 만들어야하는지에 대한 설명서
+    copy files(어플리케이션을 구동하기위해 어떤 파일이 꼭 필요한지)
+    install dependencies(어떤 프레임워크나 라이브러리를 설치해야하는지)
+    set encvironment variables(환경변수 설정)
+    run setup script(어떻게 구동해야하는지)
+    등을 포함
+- Image : 실행되고 있는 어플리케이션의 상태를 순간 캡쳐
+    -> 변경이 불가능함.
+    class라고 생각하면됨
+- container : Image를 이용해서 고립된 환경에서 앱을 실행할 수 있음
+    class를 이용해서 만든 인스턴스 라고 생각하면됨
+
+2. Shipping containers
+local machine(개인 pc) -> container registry(깃허브) -> server(다른 개발자pc)
+이미지를 push하고 pull하면서 사용.
+local machine과 server에는 docker가 설치되어있어야함
+
+- Container registry(이미지를 공유할수 있음)
+public
+    dockerhub, RED HAT, GitHub package
+private(회사 등 보안이 중요할 떄 사용)
+    aws, google cloud 등
+
+전체적인 과정은 저장한 이미지 참고!
