@@ -1,0 +1,30 @@
+MySQL과 MongoDB의 차이점
+(MySQL, MongoDB)
+- 용어
+Database, Database
+Table, Collection
+Tuple(Row), Document 
+Column, Field
+Table join, Embedded Documents & Linking
+Primary Key, Primary Key(_id)
+
+- 서버
+mysqld, mongod
+
+- 클라이언트
+mysql, mongo
+
+- SQL
+insert
+    insert into users("name", "city") values("lee", "seoul")
+    db.users.insert({name:"lee",city:"seoul"})
+select
+    select * from users where name="lee"
+    db.users.find({name:"lee"})
+update
+    update users set city="busan" where name="lee"
+    db.users.update({name:"lee"},{$set{city:"busan"}})
+delete
+    delete from users where name="lee"
+    db.users.remove({name:"lee"})
+
