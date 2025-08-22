@@ -28,3 +28,13 @@ delete
     delete from users where name="lee"
     db.users.remove({name:"lee"})
 
+mongoDB 특징
+- schema-less : 고정 스키마가 존재하지 않음.
+    같은 Collection내에 있더라도 Document level의 다른 스키마를 가질 수 있음
+    -> 동적 스키마
+- JOIN이 없음 : 불가능하지는 않음
+    하나의 Document에 최대한 많은 데이터를 포함시킴
+    -> 간편하고 빠른 쿼리를 가능하게 함
+- scalability(규모 가변성, 확장성)이 우수함.
+    sharding(여러개의 디비에 데이터를 분할하는 기술) 클러스터 구축 가능
+    
