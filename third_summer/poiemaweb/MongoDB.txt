@@ -37,4 +37,24 @@ mongoDB 특징
     -> 간편하고 빠른 쿼리를 가능하게 함
 - scalability(규모 가변성, 확장성)이 우수함.
     sharding(여러개의 디비에 데이터를 분할하는 기술) 클러스터 구축 가능
+
+- create
+    use <database-name>
+    db -> 현재 사용중인 db를 확인
+    show dbs -> db리스트를 확인함
+    writeConcern -> write(insert, update, remove)처리를 영속화 시키기 위한 설정
+        기본 설정을 사용하려면 생략하면 됨
+    ordered -> true로 설정하면 Document array의 인덱스 순으로 insert.
+        처리중 에러가 발생하면 발생된 document 이후의 처리는 진행되지 않음
+    
+    한번에 여러개의 document insert 가능 :
+    db.books.insert([
+    { title: "Example2", author: "Lee", price: 200 },
+    { title: "Example3", author: "Lee", price: 300 },
+    { title: "Example4", author: "Lee", price: 400 }
+    ])
+
+    schema-less하므로 동일한 Collection에 있어도 document level의 다른 schema를 가질 수 있음
+    db.books.insert({ title: "Example5", author: "Lee", price: 200, stock: 0 })
+
     
