@@ -57,4 +57,19 @@ mongoDB 특징
     schema-less하므로 동일한 Collection에 있어도 document level의 다른 schema를 가질 수 있음
     db.books.insert({ title: "Example5", author: "Lee", price: 200, stock: 0 })
 
-    
+- Read : find() 메소드 사용해서 Collection 내의 documetn를 select함
+    db.collection.find(query, projection)
+    query : SQL의 whrer절과 유사
+    projection : select 결과에 포함될 필드
+    db.books.find() -> 모든 document를 select
+    뒤에 .pretty()를 사용하면 format에 맞게 출력해줌
+    출력 될때에는 별도로 지정하지 않은 _id가 추가됨
+    db.books.find({ }, { _id: 0, title: 1 }) -> 이렇게해서 select할 field를 지정할 수 있음
+    SELECT title, author
+    FROM books
+    WHERE price = 200
+    ->
+    db.books.find(
+        {price: 200},
+        {title:1, author:1, _id:0}
+    )
