@@ -1,1 +1,3 @@
-third_summer/node_modlues/
+third_summer/node_modules/
+third_summer/backend-practice/node_modules/
+.DS_Store
