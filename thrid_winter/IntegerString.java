@@ -15,7 +15,7 @@ public class IntegerString {
         words[8] = "eight";
         words[9] = "nine";
 
-        while (!str.toString().isEmpty()) {
+        while (!str.toString().isEmpty()) {// StringBuilder로 했을때 String 메서드 사용하는거 주의하기
             char word = str.charAt(0);
             String sub;
 
